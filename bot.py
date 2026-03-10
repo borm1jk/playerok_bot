@@ -530,13 +530,15 @@ async def about_callback(callback: CallbackQuery):
         f"🔹 Более 1 млн пользователей\n"
         f"🔹 150 000+ успешных сделок\n"
         f"🔹 Поддержка 24/7\n\n"
-        f"Как это работает:\n"
-        f"1. Продавец создает сделку\n"
-        f"2. Покупатель переводит деньги на карту гаранта\n"
-        f"3. Воркер подтверждает оплату\n"
-        f"4. Продавец отправляет товар\n"
-        f"5. Покупатель подтверждает получение\n"
-        f"6. Гарант переводит деньги продавцу"
+        f"⚙️ **СХЕМА РАБОТЫ:**\n\n"
+        f"1️⃣ Продавец создает сделку в боте\n"
+        f"2️⃣ Продавец отправляет товар гаранту\n"
+        f"3️⃣ Гарант проверяет товар\n"
+        f"4️⃣ Покупатель переводит деньги на карту гаранта\n"
+        f"5️⃣ Гарант подтверждает оплату\n"
+        f"6️⃣ Гарант переводит деньги продавцу\n"
+        f"7️⃣ Гарант отправляет товар покупателю\n\n"
+        f"✅ **ТОВАР И ДЕНЬГИ ПОД КОНТРОЛЕМ ГАРАНТА**"
     )
     
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
@@ -552,7 +554,7 @@ async def about_callback(callback: CallbackQuery):
         logger.error(f"Ошибка: {e}")
         await callback.message.answer(text, reply_markup=keyboard)
     
-    await callback.answer()
+    await callback.answer()  # ← ЭТО БЫЛО НЕ ЗАКРЫТО
 
 # ========== МАРКЕТПЛЕЙС ==========
 @dp.callback_query(F.data == "marketplace")
@@ -1036,4 +1038,5 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
+
     asyncio.run(main())
